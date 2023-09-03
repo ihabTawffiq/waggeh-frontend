@@ -1,0 +1,89 @@
+<!-- <div class="container-fluid"> -->
+<div class="row text-center">
+  <div class="col imgContainer">
+    <img src="/assets/imgs/Waggeh_Logo.png" class="float-start" alt="..." />
+  </div>
+  <div class="col"></div>
+</div>
+<div class="row justify-content-md-center">
+  <div class="col-md-auto formContainer">
+    <h3 class="welcomeText">
+      Welcome to <img src="/assets/imgs/Waggeh_Logo.png" />
+    </h3>
+    <span>Connect to our community of consultant and business owners, to</span>
+    <h4>
+      empower your consultancy career with our virtual consultancy service
+    </h4>
+    <div class="googleConnectContainer">
+      <img src="/assets/imgs/google.png" />
+      Continue with Google
+    </div>
+    <div class="or"><span>OR</span></div>
+    <div class="formGroup">
+      <form [formGroup]="signInFrom">
+        <div>
+          <label for="email">Email address</label>
+          <input
+            type="text"
+            id="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="Your email address"
+            aria-describedby="basic-addon3"
+          />
+        </div>
+        <label for="password">Password</label>
+        <div class="passwordInput">
+          <input
+            type="password"
+            [type]="showPass ? 'text' : 'password'"
+            class="form-control"
+            formControlName="password"
+
+            (keyup)="passwordMatch()"
+            placeholder="Password"
+            [(ngModel)]="password"
+            aria-describedby="basic-addon3"
+          />
+          <i
+            (click)="showPass = !showPass"
+            [class]="showPass ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"
+          ></i>
+        </div>
+        <label for="confirmPassword">Confirm password</label>
+        <div class="passwordInput">
+          <input
+            type="password"
+            id="confirmPassword"
+            [(ngModel)]="confirmPassword"
+            [ngModelOptions]="{standalone: true}"
+            (keyup)="passwordMatch()"
+            [type]="showConfirmPass ? 'text' : 'password'"
+            class="form-control"
+            placeholder="Confirm password"
+            aria-describedby="basic-addon3"
+          />
+          <i
+            (click)="showConfirmPass = !showConfirmPass"
+            [class]="
+              showConfirmPass ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'
+            "
+          ></i>
+        </div>
+        <div *ngIf="!passwordIsMatch" class="text-danger">
+          Passwords do not match .
+        </div>
+
+        <div class="save">
+          <button routerLink="/login/continueSignUp" type="button" class="btn btn-lg btn-block">
+            Continue with email
+          </button>
+        </div>
+      </form>
+      <div class="text-center mt-4 signUp" routerLink="/login">
+        <span>Have an existing account ? <strong>Log in</strong> </span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div> -->
